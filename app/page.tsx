@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
     },
     {
       name: "About",
-      link: "/about",
+      link: "#about",
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
@@ -44,10 +44,10 @@ export default function Home() {
           <p className="mb-5" style={{ marginTop: "1rem", maxWidth: "500px" }}>I want to have connection with someone. I want to be needed by someone. I want the confidence to feel like it's okay to live.</p>
           <HoverBorderGradient as={"button"}>
             <div className="flex items-center space-x-2">
-              <p>
+              <p onClick={() => window.open("https://www.instagram.com/kufavmpu/")}>
                 Get connected with{" "}
                 <LinkPreview 
-                  url="https://tailwindcss.com" 
+                  url="https://www.instagram.com/kufavmpu/" 
                   isStatic 
                   imageSrc="https://encrypted-tbn0.gstatic.com/image?q=tbn:ANd9GcQu4CjXQ9TItlKUCAwigG4jMmEjIZAwUTlpkA&s" 
                   className="text-white"
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         <BackgroundBeams />
       </div>
-      <div className="fun-fact flex justify-center">
+      <div className="fun-fact flex justify-center" id="about">
         <HeroHighlight>
           <motion.h1
             initial={{
@@ -89,7 +89,7 @@ export default function Home() {
               duration: 0.5,
               ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold    text-neutral-800 dark:text-white max-w-4xl leading-relaxed    lg:leading-snug text-center mx-auto "
+            className="text-xl px-4 md:text-4xl lg:text-5xl font-bold    text-neutral-800 dark:text-white max-w-4xl leading-relaxed    lg:leading-snug text-center mx-auto "
           >
             <Highlight>
               Kufvampu's 
