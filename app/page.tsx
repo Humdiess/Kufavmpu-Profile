@@ -37,7 +37,7 @@ export default function Home() {
                 Kufavmpu
             </span>
           </h1>
-          <p className="mb-5" style={{ marginTop: "1rem", maxWidth: "500px" }}>Deksirpsi malu mlauinjir apalah dia ga jelas wkkkwkwkwkwkwkwkwkwkfajfoashfo aofoewfo asofhasofho</p>
+          <p className="mb-5" style={{ marginTop: "1rem", maxWidth: "500px" }}>I want to have connection with someone. I want to be needed by someone. I want the confidence to feel like it's okay to live.</p>
           <HoverBorderGradient as={"button"}>
             <div className="flex items-center space-x-2">
               <p>
