@@ -3,7 +3,6 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-import Image from "next/image";
 
   const navItems = [
     {
