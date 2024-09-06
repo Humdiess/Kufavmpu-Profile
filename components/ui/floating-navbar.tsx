@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { IconSun, IconMoon } from "@tabler/icons-react"; // Icons for light/dark mode
 
 export const FloatingNav = ({
   navItems,
@@ -23,6 +24,7 @@ export const FloatingNav = ({
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(true); // Initially visible
   const [lastScrollPos, setLastScrollPos] = useState(0); // Keep track of the last scroll position
+  const [theme, setTheme] = useState("light"); // Default theme is light
 
   // Handle scroll direction and visibility
   useMotionValueEvent(scrollY, "change", (latestScrollPos) => {
@@ -44,6 +46,22 @@ export const FloatingNav = ({
     // Update the last scroll position
     setLastScrollPos(latestScrollPos);
   });
+
+  // Handle theme change and persist in localStorage
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.classList.toggle("dark", storedTheme === "dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("theme", newTheme); // Save theme in localStorage
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -76,6 +94,14 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
+
+        <button
+          onClick={toggleTheme}
+          className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-900"
+          aria-label="Toggle dark mode"
+        >
+          {theme === "light" ? <IconMoon size={18} /> : <IconSun size={18} />}
+        </button>
       </motion.div>
     </AnimatePresence>
   );
